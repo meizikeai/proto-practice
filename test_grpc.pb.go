@@ -27,14 +27,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TestRpcServiceClient interface {
-	// *
-	// 写入 users 表信息
-	// 把 数据 写入到 users 数据库
+	// Write data to database
 	AddUserData(ctx context.Context, in *AddUserDataRequest, opts ...grpc.CallOption) (*AddUserDataResponse, error)
-	// *
-	// 获取 users 表信息
-	// 根据 uid 与 指定的 字段集（必传）返回信息
-	// 返回字符串(map[string]string)，根据需要处理 string to int...
+	// Return information based on uid and the specified field set (required)
 	GetUserData(ctx context.Context, in *GetUserDataRequest, opts ...grpc.CallOption) (*GetUserDataResponse, error)
 }
 
@@ -68,14 +63,9 @@ func (c *testRpcServiceClient) GetUserData(ctx context.Context, in *GetUserDataR
 // All implementations must embed UnimplementedTestRpcServiceServer
 // for forward compatibility
 type TestRpcServiceServer interface {
-	// *
-	// 写入 users 表信息
-	// 把 数据 写入到 users 数据库
+	// Write data to database
 	AddUserData(context.Context, *AddUserDataRequest) (*AddUserDataResponse, error)
-	// *
-	// 获取 users 表信息
-	// 根据 uid 与 指定的 字段集（必传）返回信息
-	// 返回字符串(map[string]string)，根据需要处理 string to int...
+	// Return information based on uid and the specified field set (required)
 	GetUserData(context.Context, *GetUserDataRequest) (*GetUserDataResponse, error)
 	mustEmbedUnimplementedTestRpcServiceServer()
 }

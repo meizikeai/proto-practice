@@ -4,6 +4,12 @@
 
 单一的 protobuf 声明项目，方便 服务方 / 使用方 以 git submodule 的模式引用
 
+```sh
+$ git submodule update --init
+$ git submodule update --remote --merge
+$ git submodule update --remote --rebase
+```
+
 ### 项目地址
 
 https://github.com/meizikeai/proto-practice.git
