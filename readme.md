@@ -19,6 +19,17 @@ https://github.com/meizikeai/proto-practice.git
 执行 build.proto.sh 文件命令，依赖 Go 插件，如下
 
 ```go
+// Protocol buffer
+
+// Linux
+$ apt install -y protobuf-compiler
+protoc --version  # Ensure compiler version is 3+
+
+// MacOS
+$ brew install protobuf
+protoc --version  # Ensure compiler version is 3+
+
+// Go plugins
 $ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 $ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
